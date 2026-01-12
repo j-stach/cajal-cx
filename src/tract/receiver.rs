@@ -16,7 +16,7 @@ pub trait TractReceiver: Tract {
 }
 
 /// This struct holds connection information for targeting an Input via `Output::connect_tract`.
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct ReceiverReport {
 
     /// The name of the Receiver (e.g., Input, Motor) 
