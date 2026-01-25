@@ -43,7 +43,7 @@ pub trait TractSender: Tract {
     /// Connect the sender's UdpSocket to the stored address.
     /// Must be called from within the `tokio` runtime, 
     /// but before starting the neurotransmission loop.
-    async fn connect(&mut self) -> Result<(), std::io::Error> {
+    async fn connect(&self) -> Result<(), std::io::Error> {
         self.socket().connect(self.address()).await
     }
 
