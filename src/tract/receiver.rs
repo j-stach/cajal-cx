@@ -9,7 +9,7 @@ pub trait TractReceiver: Tract {
     fn report_receiver(&self) -> ReceiverReport {
         ReceiverReport {
             tract_name: self.tract_name().to_owned(),
-            address: self.tract_address().clone(),
+            address: self.address().clone(),
             num_fibers: self.num_fibers(),
         }
     }
