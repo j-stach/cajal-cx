@@ -6,8 +6,8 @@ use super::Tract;
 pub trait TractReceiver: Tract {
 
     /// Generate a ReceiverReport for use in tract connection.
-    fn report_receiver(&self) -> ReceiverReport {
-        ReceiverReport {
+    fn receiver_info(&self) -> ReceiverInfo {
+        ReceiverInfo {
             tract_name: self.tract_name().to_owned(),
             address: self.address().clone(),
             num_fibers: self.num_fibers(),
@@ -17,7 +17,7 @@ pub trait TractReceiver: Tract {
 
 /// This struct holds connection information for targeting an Input via `Output::connect_tract`.
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
-pub struct ReceiverReport {
+pub struct ReceiverInfo {
 
     /// The name of the Receiver (e.g., Input, Motor) 
     /// should correspond to the name of the Sender (e.g., Output, Sensor).
